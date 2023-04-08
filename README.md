@@ -4,7 +4,7 @@ A clean and streamlined experience for a more organized home screen and an Andro
 ## Here's how it works
 The app is a launcher that displays a scrollable list of all the installed apps on a device. When an app is clicked on, the launcher opens the selected app.
 
-The launcher's functionality includes loading the installed apps, sorting them alphabetically, displaying them in a scrollable list, and launching the selected app. The launcher requires the "android.permission.READ_EXTERNAL_STORAGE" permission to read the installed apps.
+The launcher's functionality includes loading the installed apps, sorting them alphabetically, displaying them in a scrollable list, and launching the selected app. 
 
 The app consists of a single activity, MainActivity, which extends the AppCompatActivity class.
 ```
@@ -56,3 +56,8 @@ The app uses the ```Android PackageManager``` and ```ListView``` classes to disp
 * It specifies a target SDK version of 31 (Android 12) in the app's manifest file, indicating that it has been tested and optimized for that version of Android. 
 
 However, the app should still be compatible with devices running earlier versions of Android, down to the minimum SDK version.
+
+## Android Permissions
+* android.permission.READ_EXTERNAL_STORAGE
+
+
