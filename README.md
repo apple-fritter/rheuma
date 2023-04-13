@@ -1,63 +1,28 @@
-# author_idas
-A clean and streamlined experience for a more organized home screen and an Android launcher for my tired old hands. A simple and efficient way to organize and access apps on an Android device. With a clean and minimalistic design, it is easy to view and launch apps quickly. The app list is organized alphabetically and is easily scrollable for quick access.
+# author_idas launcher
+author_idas is a simple launcher app for Android that displays a vertically scrollable list of installed apps. It allows users to quickly launch their favorite apps without the clutter of a full home screen.
 
-## Here's how it works
-The app list in this launcher app has been designed to replace the main screen of the Android device. This means that when the launcher app is set as the default launcher, the user will be presented with a scrollable list of all installed apps as the first screen they see when they unlock their device, instead of the usual home screen with widgets, shortcuts, and app icons.
-
-The app list is presented in a clean and organized way, allowing users to easily find the app they're looking for by scrolling through the list or by typing the name of the app in the search bar. This design is meant to create a minimalist and distraction-free interface, which can help users focus on the apps they need to use, without being distracted by notifications, widgets, or other elements that are typically present on the home screen.
-
-The app consists of a single activity, MainActivity, which extends the AppCompatActivity class.
+## Features
 ```
-public class MainActivity extends AppCompatActivity {
-    ...
-}
+Simple and fast launcher for Android devices
+Displays a vertically scrollable list of installed apps
+Uses the system font and theme
+No search bar or app drawer for a streamlined experience
+Dark mode by default
 ```
-When the activity is created, the onCreate() method is called. This method sets the content view to the activity_main layout file, which contains a ListView element to display the list of apps.
-```@Override
-protected void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_main);
-    ...
-}
-```
-The loadApps() method is called to load the list of apps from the device. This method creates an Intent with the ACTION_MAIN action and CATEGORY_LAUNCHER category, and queries the PackageManager for all activities that can handle the intent. The ResolveInfo objects returned by the query are stored in the mActivities list and sorted alphabetically by name.
-```private void loadApps() {
-    Intent mainIntent = new Intent(Intent.ACTION_MAIN, null);
-    mainIntent.addCategory(Intent.CATEGORY_LAUNCHER);
-    mActivities = mPackageManager.queryIntentActivities(mainIntent, 0);
-    Collections.sort(mActivities, new ResolveInfo.DisplayNameComparator(mPackageManager));
-}
-```
-The setupListView() method is called to set up the ListView to display the list of apps. This method creates an ArrayAdapter with the app names and sets it as the adapter for the ListView. When the user clicks on an app in the list, the onItemClick() method is called, which launches the selected app. Here's an example:
-```private void setupListView() {
-    ArrayList<String> appNames = new ArrayList<>();
-    for (ResolveInfo activity : mActivities) {
-        appNames.add(activity.loadLabel(mPackageManager).toString());
-    }
-    mAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, appNames);
-    mAppList.setAdapter(mAdapter);
-    mAppList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-        @Override
-        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-            ResolveInfo activity = mActivities.get(position);
-            Intent intent = new Intent(Intent.ACTION_MAIN);
-            intent.setClassName(activity.activityInfo.applicationInfo.packageName,
-                    activity.activityInfo.name);
-            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            startActivity(intent);
-        }
-    });
-}
+## How it works
 
-```
-The app uses the ```Android PackageManager``` and ```ListView``` classes to display a sorted list of installed apps and launch them when selected.
-## This app requires
-* Minimum SDK version of 15 (Android 4.0.3, Ice Cream Sandwich) to run.
-* It specifies a target SDK version of 31 (Android 12) in the app's manifest file, indicating that it has been tested and optimized for that version of Android. 
+The `MainActivity` is the entry point for the app and sets up the views and variables for the app list. The `PackageManager` is used to query the device for all activities that have a category of `Intent.CATEGORY_LAUNCHER`. These are the apps that appear in the app list. The app list is sorted alphabetically using a custom Comparator. Each app's label, package name, and icon are extracted and stored in an `AppInfo` object. The `AppListAdapter` is a custom adapter that extends `ArrayAdapter` and is used to populate the `ListView` with the `AppInfo` objects.
 
-However, the app should still be compatible with devices running earlier versions of Android, down to the minimum SDK version.
+When an app in the list is clicked, the package name is used to retrieve the app's launch intent from the `PackageManager` and the app is launched with `startActivity()`. The launcher supports dark mode by setting the `android:forceDarkAllowed` attribute to true in the manifest file.
 
-## Android Permissions
-* android.permission.READ_EXTERNAL_STORAGE
+The UI of the launcher is intentionally minimalistic and doesn't use any custom styling or theming. The list of apps is displayed in a simple vertical scrollable `ListView` with no dividers or search bar. The app icons are the only visual element that differentiate the apps from one another.
 
+## Installation
+* Clone or download the repository
+* Open the project in Android Studio
+* Build and run the app on an emulator or physical device
 
+## Usage
+* Launch the app to display a list of installed apps
+* Scroll up or down to browse the list
+* Tap an app icon to launch the app
