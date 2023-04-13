@@ -1,0 +1,23 @@
+MyLauncher/
+├─ app/
+│  ├─ src/
+│  │  ├─ main/
+│  │  │  ├─ java/
+│  │  │  │  └─ com/example/mylauncher/
+│  │  │  │     ├─ AppInfo.java
+│  │  │  │     ├─ AppListAdapter.java
+│  │  │  │     └─ MainActivity.java
+│  │  │  └─ res/
+│  │  │     ├─ drawable/
+│  │  │     │  └─ default_app_icon.xml
+│  │  │     ├─ layout/
+│  │  │     │  └─ activity_main.xml
+│  │  │     └─ values/
+│  │  │        └─ styles.xml
+│  └─ build.gradle
+├─ build.gradle
+├─ gradle/
+│  └─ wrapper/
+│     ├─ gradle-wrapper.jar
+│     └─ gradle-wrapper.properties
+└─ settings.gradle
