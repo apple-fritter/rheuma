@@ -17,6 +17,9 @@ When an app in the list is clicked, the package name is used to retrieve the app
 
 The UI of the launcher is intentionally minimalistic and doesn't use any custom styling or theming. The list of apps is displayed in a simple vertical scrollable `ListView` with no dividers or search bar. The app icons are the only visual element that differentiate the apps from one another.
 
+## Permissions
+This launcher does not require any special permissions. It only uses the standard permissions that are automatically granted to all Android applications, such as access to the internet and access to the device's storage.
+
 ## Installation
 * Clone or download the repository
 * Open the project in Android Studio
