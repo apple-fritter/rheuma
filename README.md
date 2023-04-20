@@ -29,3 +29,7 @@ This launcher does not require any special permissions. It only uses the standar
 * Launch the app to display a list of installed apps
 * Scroll up or down to browse the list
 * Tap an app icon to launch the app
+
+## License
+
+This script is released under the [MIT License](LICENSE).
