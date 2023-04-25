@@ -1,6 +1,9 @@
 # author_idas launcher
 author_idas is a simple launcher app for Android that displays a vertically scrollable list of installed apps. It allows users to quickly launch their favorite apps without the clutter of a full home screen.
 
+## incomplete project
+This project is far from completion, and I hope to have it done by summer's time. If you would like to assist, please do!
+
 ## Features
 ```
 Simple and fast launcher for Android devices
