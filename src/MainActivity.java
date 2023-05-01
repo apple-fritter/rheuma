@@ -1,4 +1,4 @@
-package com.example.mylauncher;
+package com.applefritter.rheuma;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
