@@ -1,4 +1,4 @@
-package com.example.mylauncher;
+package com.applefritter.rheuma;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
